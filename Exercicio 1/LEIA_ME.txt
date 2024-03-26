@@ -1,0 +1,4 @@
+Para compilar o código são necessárias as linhas de comando: 
+
+-> gcc aula2exer1_VictorGuimarães_211063256.c
+-> ./a.out
