@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAX_CARROS 10 // máximo de carros que uma pessoa pode ter
-#define MAX_REGISTERS 1000 // número máximo de registros 
+#define MAX_REGISTERS 10000 // número máximo de registros 
 
 // Definição da estrutura para armazenar os dados de uma pessoa
 typedef struct {
@@ -11,14 +11,14 @@ typedef struct {
     char nome[50];
     char endereco[100];
     char telefone[20];
-    int num_carros;
+    int num_carros; //tirar, numero de carros não é atributo de pessoa
 } Pessoa;
 
 
 typedef struct {
-    char modelo_carro[MAX_CARROS][50];
-    char cor_carro[MAX_CARROS][30];
-    char placa_carro[MAX_CARROS][10];
+    char modelo_carro[50];
+    char cor_carro[30];
+    char placa_carro[10];
 } Carros;
 
 //verifica se há semelhança entre o CPF pretendido a cadastrar com algum previamente cadastrado
@@ -80,16 +80,16 @@ void cadastrar_pessoa() {
     for (int i = 0; i < pessoa.num_carros; i++) {
 
         printf("Digite a placa do carro %d: ", i + 1);
-        fgets(carros.placa_carro[i], 10, stdin);
-        fprintf(arquivoCarro, "%s", carros.placa_carro[i]);
+        fgets(carros.placa_carro, 10, stdin);
+        fprintf(arquivoCarro, "%s", carros.placa_carro);
 
         printf("Digite o modelo do carro %d: ", i + 1);
-        fgets(carros.modelo_carro[i], 50, stdin);
-        fprintf(arquivoCarro, "%s", carros.modelo_carro[i]);
+        fgets(carros.modelo_carro, 50, stdin);
+        fprintf(arquivoCarro, "%s", carros.modelo_carro);
        
         printf("Digite a cor do carro %d: ", i + 1);
-        fgets(carros.cor_carro[i], 30, stdin);
-        fprintf(arquivoCarro, "%s\n", carros.cor_carro[i]);
+        fgets(carros.cor_carro, 30, stdin);
+        fprintf(arquivoCarro, "%s\n", carros.cor_carro);
     }
 
     fclose(arquivoPessoa);
